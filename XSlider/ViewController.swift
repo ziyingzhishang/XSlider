@@ -10,8 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var xslider: XSlider!
+  
   override func viewDidLoad() {
     super.viewDidLoad()
+    xslider.leftView = UIButton()
+    xslider.leftView?.setTitle("Test", for: .normal)
     // Do any additional setup after loading the view, typically from a nib.
   }
 
@@ -19,7 +23,5 @@ class ViewController: UIViewController {
     super.didReceiveMemoryWarning()
     // Dispose of any resources that can be recreated.
   }
-
-
 }
 
