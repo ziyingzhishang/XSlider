@@ -11,9 +11,6 @@ import UIKit
 @IBDesignable
 class XSlider: UIView {
 
-  var leftView: UIButton?
-  var rightView: UIButton?
-
   var trackView: UIView!
 
   fileprivate var mainLineColor: UIColor?
@@ -24,6 +21,14 @@ class XSlider: UIView {
 
   private lazy var lineY: CGFloat = {
     return self.bounds.height * 2 / 3
+  }()
+
+  private lazy var minX: CGFloat = {
+    return padding
+  }()
+
+  private lazy var maxX: CGFloat = {
+    return self.frame.width - padding
   }()
 
   override init(frame: CGRect) {
@@ -38,14 +43,6 @@ class XSlider: UIView {
 
   override func layoutSubviews() {
     super.layoutSubviews()
-    // set leftView and rightView bounds and position
-
-    leftView?.center = CGPoint(x: (leftView?.bounds.width ?? 0) / 2, y: lineY)
-    rightView?.center = CGPoint(x: (self.bounds.width - (rightView?.bounds.width ?? 0)) / 2,
-                                y: lineY)
-
-    //
-
   }
 
   override func draw(_ rect: CGRect) {
@@ -73,22 +70,46 @@ class XSlider: UIView {
   }
 
   func configUI() {
-    self.backgroundColor = UIColor.white
-    if leftView != nil {
-      self.addSubview(leftView!)
-    }
-    if rightView != nil {
-      self.addSubview(rightView!)
-    }
-    
     trackView = UIView()
+    
     trackView.frame = CGRect(x: 0, y: 0, width: 10, height: 20)
     trackView.backgroundColor = UIColor.white
     trackView.layer.borderWidth = 0.33
     trackView.layer.borderColor = UIColor.gray.cgColor
     trackView.layer.cornerRadius = 5
 
+    trackView.layer.shadowColor = UIColor.darkGray.cgColor
+    trackView.layer.shadowOffset = CGSize(width: 1, height: 1)
+    trackView.layer.shadowOpacity = 0.8
+
     self.addSubview(trackView)
+  }
+
+  override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    let rect = CGRect(x: trackView.frame.origin.x,
+                      y: trackView.frame.origin.y,
+                      width: trackView.frame.width + 15,
+                      height: trackView.frame.height)
+    if rect.contains(point) {
+      return trackView
+    }
+    return nil
+  }
+
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    trackView.alpha = 0.8
+    trackView.layer.backgroundColor = UIColor.gray.cgColor
+  }
+
+  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    guard let touch = touches.first else { return }
+    let endPoint = touch.location(in: self)
+    trackView.center = CGPoint(x: endPoint.x, y: lineY)
+  }
+
+  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    trackView.alpha = 1
+    trackView.layer.backgroundColor = UIColor.white.cgColor
   }
 }
 
