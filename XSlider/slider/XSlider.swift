@@ -20,6 +20,8 @@ class XSlider: UIView {
   fileprivate var mainLineWidth: Float = 0
   fileprivate var mainLineScaleCount: Int = 1
 
+  private let padding: CGFloat = 10
+
   private lazy var lineY: CGFloat = {
     return self.bounds.height * 2 / 3
   }()
@@ -53,20 +55,21 @@ class XSlider: UIView {
     guard let context = UIGraphicsGetCurrentContext() else { return }
     context.setStrokeColor(penColor.cgColor)
     context.setLineWidth(CGFloat(mainLineWidth))
-    context.move(to: CGPoint(x: 0, y: lineY))
-    context.addLine(to: CGPoint(x: self.bounds.width, y: lineY))
+    context.move(to: CGPoint(x: padding, y: lineY))
+    context.addLine(to: CGPoint(x: self.bounds.width - padding, y: lineY))
     context.strokePath()
 
     let scaleCount = mainLineScaleCount + 2
-    let stepW = self.bounds.width / CGFloat(mainLineScaleCount)
+    let stepW = (self.bounds.width - (2 * padding)) / CGFloat(mainLineScaleCount)
     let scaleLineFromY = lineY - 5
     let scaleLineToY = lineY + 5
     for scale in 0..<scaleCount {
-      let scaleLineX = CGFloat(scale) * stepW
+      let scaleLineX = CGFloat(scale) * stepW + padding
       context.move(to: CGPoint(x: scaleLineX, y: scaleLineFromY))
       context.addLine(to: CGPoint(x: scaleLineX, y: scaleLineToY))
       context.strokePath()
     }
+    trackView.center = CGPoint(x: padding, y: lineY)
   }
 
   func configUI() {
@@ -77,7 +80,14 @@ class XSlider: UIView {
     if rightView != nil {
       self.addSubview(rightView!)
     }
+    
     trackView = UIView()
+    trackView.frame = CGRect(x: 0, y: 0, width: 10, height: 20)
+    trackView.backgroundColor = UIColor.white
+    trackView.layer.borderWidth = 0.33
+    trackView.layer.borderColor = UIColor.gray.cgColor
+    trackView.layer.cornerRadius = 5
+
     self.addSubview(trackView)
   }
 }
