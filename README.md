@@ -6,7 +6,9 @@
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4-compatible-4BC51D.svg?style=flat" alt="Swift 4 compatible" /></a>
 </p>
 
-![](images/result.png)
+<p align="center">
+<img src="images/result.png">
+</p>
 
 # Contents
 * [Next]
@@ -30,8 +32,9 @@
 - Maxmum Value
 - Minimum Value
 - value
-
-<img align="center" src="images/features.png"/>
+<p align="center">
+<img src="images/features.png"/>
+</p>
 
 ## Usage
   Use in storeboard or in Your Code like a Apple's UISlider Control.
