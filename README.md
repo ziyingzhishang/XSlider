@@ -10,23 +10,38 @@
 
 # Contents
 * [Requirements]
-* [Features]
+* [Properties]
 * [Usage]
   + [How to use]
 * [Installation]
 * [FAQ]
 
-## Features
+## Requirements
+
+## Properties
 - LineColor
 - LineWidth
 - ScaleCount
 - Maxmum Value
 - Minimum Value
+- value
 
 ![](images/features.png)
 
 ## Usage
   Use in storeboard or in Your Code like a Apple's UISlider Control.
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+  @IBOutlet weak private var slider: XSlider!
+
+  @IBAction func valueChanged(_ sender: Any) {
+    guard let slider = sender as? XSlider else { return }
+    print("\(slider.value)======")
+  }
+}
+```
 ## Installation
 
 ## FAQ
