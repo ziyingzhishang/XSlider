@@ -11,25 +11,41 @@ import UIKit
 @IBDesignable
 class XSlider: UIView {
 
-  var trackView: UIView!
+  private var trackView: UIView!
 
   fileprivate var mainLineColor: UIColor?
   fileprivate var mainLineWidth: Float = 0
-  fileprivate var mainLineScaleCount: Int = 1
+  fileprivate var count: Int = 1
+  fileprivate var minValue: Float = 0
+  fileprivate var maxValue: Float = 1
 
   private let padding: CGFloat = 10
 
-  private lazy var lineY: CGFloat = {
+  private lazy var stepValue: Float = {
+    return (maxValue - minValue) / Float(count)
+  }()
+
+  private var currentValue: Float = 0 {
+    didSet {
+      print(currentValue)
+    }
+  }
+
+  private var lineY: CGFloat {
     return self.bounds.height * 2 / 3
-  }()
+  }
 
-  private lazy var minX: CGFloat = {
+  private var minX: CGFloat {
     return padding
-  }()
+  }
 
-  private lazy var maxX: CGFloat = {
+  private var maxX: CGFloat {
     return self.frame.width - padding
-  }()
+  }
+
+  private var stepW: CGFloat {
+    return (self.bounds.width - (2 * padding)) / CGFloat(count)
+  }
 
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -56,12 +72,12 @@ class XSlider: UIView {
     context.addLine(to: CGPoint(x: self.bounds.width - padding, y: lineY))
     context.strokePath()
 
-    let scaleCount = mainLineScaleCount + 2
-    let stepW = (self.bounds.width - (2 * padding)) / CGFloat(mainLineScaleCount)
+    let scaleCount = count + 2
+    let step = stepW
     let scaleLineFromY = lineY - 5
     let scaleLineToY = lineY + 5
     for scale in 0..<scaleCount {
-      let scaleLineX = CGFloat(scale) * stepW + padding
+      let scaleLineX = CGFloat(scale) * step + padding
       context.move(to: CGPoint(x: scaleLineX, y: scaleLineFromY))
       context.addLine(to: CGPoint(x: scaleLineX, y: scaleLineToY))
       context.strokePath()
@@ -104,16 +120,41 @@ class XSlider: UIView {
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     guard let touch = touches.first else { return }
     let endPoint = touch.location(in: self)
+    if endPoint.x < minX || endPoint.x > maxX { return }
     trackView.center = CGPoint(x: endPoint.x, y: lineY)
   }
 
   override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     trackView.alpha = 1
     trackView.layer.backgroundColor = UIColor.white.cgColor
+    guard let touch = touches.first else { return }
+    let endPoint = touch.location(in: self)
+    updateSlider(endPoint)
+  }
+
+  private func updateSlider(_ position: CGPoint, _ animated: Bool = true) {
+    if position.x < minX || position.x > maxX { return }
+    let index = round((position.x - minX) / stepW)
+    let currentX = stepW * index + minX
+    currentValue = minimumValue + stepValue * Float(index)
+
+    UIView.animate(withDuration: 0.1) { [unowned self] in
+      self.trackView.center = CGPoint(x: currentX, y: self.lineY)
+    }
   }
 }
 
 extension XSlider {
+  @IBInspectable var minimumValue: Float {
+    set { self.minValue = newValue }
+    get { return minValue }
+  }
+
+  @IBInspectable var maxmumValue: Float {
+    set { self.maxValue = newValue }
+    get { return maxValue }
+  }
+
   @IBInspectable var lineColor: UIColor? {
     set { self.mainLineColor = newValue }
     get { return mainLineColor }
@@ -125,7 +166,7 @@ extension XSlider {
   }
 
   @IBInspectable var scaleCount: Int {
-    set { self.mainLineScaleCount = newValue }
-    get { return mainLineScaleCount }
+    set { self.count = newValue }
+    get { return count }
   }
 }
