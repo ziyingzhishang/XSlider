@@ -1,0 +1,11 @@
+framework module XSlider {
+  umbrella header "XSlider.h"
+
+  export *
+  module * { export * }
+}
+
+module XSlider.Swift {
+    header "XSlider-Swift.h"
+    requires objc
+}

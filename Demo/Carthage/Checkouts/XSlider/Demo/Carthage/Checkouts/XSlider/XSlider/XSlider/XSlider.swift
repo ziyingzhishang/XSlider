@@ -22,17 +22,17 @@ class XSlider: UIControl {
   private let padding: CGFloat = 10
 
   private lazy var stepValue: Float = {
-    return (self.maxValue - self.minValue) / Float(self.count)
+    return (maxValue - minValue) / Float(count)
   }()
 
-  var value: Float = 0 {
+  open var value: Float = 0 {
     didSet {
       updateSlider(value)
     }
   }
 
   private var stepV: Float {
-    return (maxValue - minValue) / Float(count)
+    return (maxmumValue - minimumValue) / Float(count)
   }
 
   private var lineY: CGFloat {
@@ -56,14 +56,14 @@ class XSlider: UIControl {
     configUI()
   }
 
-  required public init?(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     configUI()
   }
 
   override func draw(_ rect: CGRect) {
     super.draw(rect)
-    let penColor = mainLineColor
+    let penColor = mainLineColor ?? UIColor.darkGray
 
     guard let context = UIGraphicsGetCurrentContext() else { return }
     context.setStrokeColor(penColor.cgColor)
@@ -131,11 +131,11 @@ class XSlider: UIControl {
     let endPoint = touch.location(in: self)
     if endPoint.x < minX || endPoint.x > maxX { return }
     let index = round((endPoint.x - minX) / stepW)
-    self.value = self.minValue + self.stepValue * Float(index)
+    self.value = self.minimumValue + self.stepValue * Float(index)
   }
 
   private func updateSlider(_ value: Float, _ animated: Bool = true) {
-    if value > maxValue || value < minValue { return }
+    if value > maxmumValue || value < minimumValue { return }
     let index = round(value / stepValue)
     let currentX = CGFloat(stepW * CGFloat(index)) + minX
     UIView.animate(withDuration: 0.1) { [unowned self] in

@@ -11,16 +11,9 @@ import XSlider
 
 class ViewController: UIViewController {
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    // Do any additional setup after loading the view, typically from a nib.
+  @IBAction func valueChange(_ sender: Any) {
+    guard let slider = sender as? XSlider else { return }
+    print(slider.value)
   }
-
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
-  }
-
-
 }
 

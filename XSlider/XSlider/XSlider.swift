@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class XSlider: UIControl {
+open class XSlider: UIControl {
 
   private var trackView: UIView!
 
@@ -25,7 +25,7 @@ class XSlider: UIControl {
     return (self.maxValue - self.minValue) / Float(self.count)
   }()
 
-  var value: Float = 0 {
+  open var value: Float = 0 {
     didSet {
       updateSlider(value)
     }
@@ -61,7 +61,7 @@ class XSlider: UIControl {
     configUI()
   }
 
-  override func draw(_ rect: CGRect) {
+  override open func draw(_ rect: CGRect) {
     super.draw(rect)
     let penColor = mainLineColor
 
@@ -101,7 +101,7 @@ class XSlider: UIControl {
     self.addSubview(trackView)
   }
 
-  override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+  override open func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     let rect = CGRect(x: trackView.frame.origin.x,
                       y: trackView.frame.origin.y,
                       width: trackView.frame.width + 15,
@@ -112,19 +112,19 @@ class XSlider: UIControl {
     return nil
   }
 
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+  override open func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
     trackView.alpha = 0.8
     trackView.layer.backgroundColor = UIColor.gray.cgColor
   }
 
-  override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+  override open func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     guard let touch = touches.first else { return }
     let endPoint = touch.location(in: self)
     if endPoint.x < minX || endPoint.x > maxX { return }
     trackView.center = CGPoint(x: endPoint.x, y: lineY)
   }
 
-  override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+  override open func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
     trackView.alpha = 1
     trackView.layer.backgroundColor = UIColor.white.cgColor
     guard let touch = touches.first else { return }

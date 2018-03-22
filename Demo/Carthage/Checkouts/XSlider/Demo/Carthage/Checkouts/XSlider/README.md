@@ -38,9 +38,6 @@
 
 ## Usage
   Use in storeboard or in Your Code like a Apple's UISlider Control.
-
-### Carthage
-  Add github "ziyingzhishang/XSlider" "master" in Cartfile of your porject . 
 ```swift
 import UIKit
 

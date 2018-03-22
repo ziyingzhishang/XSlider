@@ -13,6 +13,8 @@
 		4279F5E82063998900F8D9B2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4279F5E72063998900F8D9B2 /* Assets.xcassets */; };
 		4279F5EB2063998900F8D9B2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4279F5E92063998900F8D9B2 /* LaunchScreen.storyboard */; };
 		4279F6022063AEC300F8D9B2 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 4279F6012063AEC300F8D9B2 /* Cartfile */; };
+		4279F61F2063C3D200F8D9B2 /* XSlider.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4279F61D2063C35100F8D9B2 /* XSlider.framework */; };
+		4279F6202063C3D200F8D9B2 /* XSlider.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 4279F61D2063C35100F8D9B2 /* XSlider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -22,6 +24,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				4279F6202063C3D200F8D9B2 /* XSlider.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -37,6 +40,7 @@
 		4279F5EA2063998900F8D9B2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4279F5EC2063998900F8D9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4279F6012063AEC300F8D9B2 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
+		4279F61D2063C35100F8D9B2 /* XSlider.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XSlider.framework; path = Carthage/Build/iOS/XSlider.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -44,6 +48,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4279F61F2063C3D200F8D9B2 /* XSlider.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -84,6 +89,7 @@
 		4279F5F62063A34800F8D9B2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4279F61D2063C35100F8D9B2 /* XSlider.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -302,6 +308,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VX83BN3V64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -318,6 +328,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = VX83BN3V64;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = Demo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
