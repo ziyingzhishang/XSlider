@@ -36,7 +36,7 @@ open class XSlider: UIControl {
   }
 
   private var lineY: CGFloat {
-    return self.bounds.height * 2 / 3
+    return self.bounds.height / 2
   }
 
   private var minX: CGFloat {
