@@ -13,9 +13,9 @@ class XSlider: UIControl {
 
   private var trackView: UIView!
 
-  fileprivate var mainLineColor: UIColor?
-  fileprivate var mainLineWidth: Float = 0
-  fileprivate var count: Int = 1
+  fileprivate var mainLineColor: UIColor = UIColor.black
+  fileprivate var mainLineWidth: Float = 1
+  fileprivate var count: Int = 5
   fileprivate var minValue: Float = 0
   fileprivate var maxValue: Float = 1
 
@@ -156,7 +156,7 @@ extension XSlider {
     get { return maxValue }
   }
 
-  @IBInspectable var lineColor: UIColor? {
+  @IBInspectable var lineColor: UIColor {
     set { self.mainLineColor = newValue }
     get { return mainLineColor }
   }

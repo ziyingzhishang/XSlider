@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  XSlider
+//  Demo
 //
-//  Created by Xudong on 2018/3/21.
+//  Created by Xudong on 2018/3/22.
 //  Copyright © 2018年 Evenki. All rights reserved.
 //
 
@@ -40,5 +40,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
   func applicationWillTerminate(_ application: UIApplication) {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
   }
+
+
 }
 
