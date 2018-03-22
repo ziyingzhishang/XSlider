@@ -11,6 +11,13 @@ import XSlider
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var slider: XSlider!
+
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    slider.value = 90
+  }
+
   @IBAction func valueChange(_ sender: Any) {
     guard let slider = sender as? XSlider else { return }
     print(slider.value)

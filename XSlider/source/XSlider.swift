@@ -21,19 +21,23 @@ open class XSlider: UIControl {
 
   private let padding: CGFloat = 10
 
-  private lazy var stepValue: Float = {
-    return (self.maxValue - self.minValue) / Float(self.count)
-  }()
+  private var currentValue: Float = 0
 
-  open var value: Float = 0 {
-    didSet {
-      updateSlider(value)
+  open var value: Float {
+    set {
+      currentValue = minValue + round(currentValue / stepV) * stepV
+      if value == newValue { return }
+      currentValue = newValue
+      updateSlider(newValue)
+    }
+    get {
+      return currentValue
     }
   }
 
-  private var stepV: Float {
+  private lazy var stepV: Float = {
     return (maxValue - minValue) / Float(count)
-  }
+  }()
 
   private var lineY: CGFloat {
     return self.bounds.height / 2
@@ -82,7 +86,8 @@ open class XSlider: UIControl {
       context.addLine(to: CGPoint(x: scaleLineX, y: scaleLineToY))
       context.strokePath()
     }
-    trackView.center = CGPoint(x: padding, y: lineY)
+//    trackView.center = CGPoint(x: padding, y: lineY)
+    updateSlider(value)
   }
 
   func configUI() {
@@ -131,12 +136,12 @@ open class XSlider: UIControl {
     let endPoint = touch.location(in: self)
     if endPoint.x < minX || endPoint.x > maxX { return }
     let index = round((endPoint.x - minX) / stepW)
-    self.value = self.minValue + self.stepValue * Float(index)
+    self.value = self.minValue + self.stepV * Float(index)
   }
 
   private func updateSlider(_ value: Float, _ animated: Bool = true) {
     if value > maxValue || value < minValue { return }
-    let index = round(value / stepValue)
+    let index = round(value / stepV)
     let currentX = CGFloat(stepW * CGFloat(index)) + minX
     UIView.animate(withDuration: 0.1) { [unowned self] in
       self.trackView.center = CGPoint(x: currentX, y: self.lineY)
