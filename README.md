@@ -6,8 +6,9 @@
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/swift4-compatible-4BC51D.svg?style=flat" alt="Swift 4 compatible" /></a>
 </p>
 
+<p align="center">
 ![](images/result.png)
-
+</p>
 # Features
 
 - LineColor
@@ -16,5 +17,7 @@
 - Maxmum Value
 - Minimum Value
 
+<p align="center">
 ![](images/features.png)
+</p>
 
