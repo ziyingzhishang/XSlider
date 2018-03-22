@@ -7,17 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4279F6132063BF0A00F8D9B2 /* XSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 4279F6112063BF0A00F8D9B2 /* XSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		4279F61A2063BF4100F8D9B2 /* XSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4279F6192063BF4100F8D9B2 /* XSlider.swift */; };
-		4279F6222063C48A00F8D9B2 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 4279F6212063C48A00F8D9B2 /* README.md */; };
+		4279F6292063C74700F8D9B2 /* XSlider.h in Headers */ = {isa = PBXBuildFile; fileRef = 4279F6252063C74700F8D9B2 /* XSlider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		4279F62A2063C74700F8D9B2 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 4279F6262063C74700F8D9B2 /* LICENSE */; };
+		4279F62B2063C74700F8D9B2 /* XSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4279F6272063C74700F8D9B2 /* XSlider.swift */; };
+		4279F62C2063C74700F8D9B2 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4279F6282063C74700F8D9B2 /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4279F60E2063BF0A00F8D9B2 /* XSlider.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XSlider.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4279F6112063BF0A00F8D9B2 /* XSlider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XSlider.h; sourceTree = "<group>"; };
-		4279F6122063BF0A00F8D9B2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4279F6192063BF4100F8D9B2 /* XSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XSlider.swift; sourceTree = "<group>"; };
-		4279F6212063C48A00F8D9B2 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		4279F6252063C74700F8D9B2 /* XSlider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XSlider.h; sourceTree = "<group>"; };
+		4279F6262063C74700F8D9B2 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		4279F6272063C74700F8D9B2 /* XSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XSlider.swift; sourceTree = "<group>"; };
+		4279F6282063C74700F8D9B2 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,7 +35,7 @@
 		4279F6042063BF0A00F8D9B2 = {
 			isa = PBXGroup;
 			children = (
-				4279F6102063BF0A00F8D9B2 /* XSlider */,
+				4279F6242063C72E00F8D9B2 /* source */,
 				4279F60F2063BF0A00F8D9B2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -47,15 +48,15 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4279F6102063BF0A00F8D9B2 /* XSlider */ = {
+		4279F6242063C72E00F8D9B2 /* source */ = {
 			isa = PBXGroup;
 			children = (
-				4279F6212063C48A00F8D9B2 /* README.md */,
-				4279F6192063BF4100F8D9B2 /* XSlider.swift */,
-				4279F6112063BF0A00F8D9B2 /* XSlider.h */,
-				4279F6122063BF0A00F8D9B2 /* Info.plist */,
+				4279F6272063C74700F8D9B2 /* XSlider.swift */,
+				4279F6252063C74700F8D9B2 /* XSlider.h */,
+				4279F6282063C74700F8D9B2 /* Info.plist */,
+				4279F6262063C74700F8D9B2 /* LICENSE */,
 			);
-			path = XSlider;
+			path = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -65,7 +66,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4279F6132063BF0A00F8D9B2 /* XSlider.h in Headers */,
+				4279F6292063C74700F8D9B2 /* XSlider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -128,7 +129,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4279F6222063C48A00F8D9B2 /* README.md in Resources */,
+				4279F62C2063C74700F8D9B2 /* Info.plist in Resources */,
+				4279F62A2063C74700F8D9B2 /* LICENSE in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,7 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4279F61A2063BF4100F8D9B2 /* XSlider.swift in Sources */,
+				4279F62B2063C74700F8D9B2 /* XSlider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,7 +272,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = XSlider/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -294,7 +296,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = XSlider/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/source/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
