@@ -40,7 +40,9 @@
   Use in storeboard or in Your Code like a Apple's UISlider Control.
 
 ### Carthage
-  Add github "ziyingzhishang/XSlider" "master" in Cartfile of your porject . 
+  Add ``` github "ziyingzhishang/XSlider" "master" ``` in Cartfile of your porject .
+### CocoaPod
+  Add ``` pod 'XSlider' ``` in Podfile of your project . 
 ```swift
 import UIKit
 
