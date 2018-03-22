@@ -16,7 +16,6 @@
 * [Properties]
 * [Usage]
   + [How to use]
-* [Installation]
 * [Donate]
 * [Autor]
 ## Requirements
@@ -55,7 +54,6 @@ class ViewController: UIViewController {
   }
 }
 ```
-## Installation
 
 ## Donate
 ![wechat](images/wechat.png)
