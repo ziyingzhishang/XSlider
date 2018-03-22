@@ -9,7 +9,7 @@
 import UIKit
 
 @IBDesignable
-class XSlider: UIView {
+class XSlider: UIControl {
 
   private var trackView: UIView!
 
@@ -25,9 +25,9 @@ class XSlider: UIView {
     return (maxValue - minValue) / Float(count)
   }()
 
-  private var currentValue: Float = 0 {
+  var currentValue: Float = 0 {
     didSet {
-      print(currentValue)
+      self.sendActions(for: .valueChanged)
     }
   }
 
@@ -136,10 +136,10 @@ class XSlider: UIView {
     if position.x < minX || position.x > maxX { return }
     let index = round((position.x - minX) / stepW)
     let currentX = stepW * index + minX
-    currentValue = minimumValue + stepValue * Float(index)
 
     UIView.animate(withDuration: 0.1) { [unowned self] in
       self.trackView.center = CGPoint(x: currentX, y: self.lineY)
+      self.currentValue = self.minimumValue + self.stepValue * Float(index)
     }
   }
 }
