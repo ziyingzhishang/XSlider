@@ -1,9 +1,0 @@
-{
-  "commitish" : "7265d27de1d8da9714745b19d36907068bf1b320",
-  "iOS" : [
-    {
-      "hash" : "5b342a3740ce4104d4237a79d6d8b54060685b9b84bd246484608723d8f5b171",
-      "name" : "XSlider"
-    }
-  ]
-}
