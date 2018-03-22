@@ -1,19 +1,12 @@
 
 Pod::Spec.new do |s|
-  s.name         = "xsliderPod"
-  s.version      = "0.0.1"
+  s.name         = "XSlider"
+  s.version      = "1.0.0"
   s.summary      = "A short description of xsliderPod."
-
-  s.description  = <<-DESC
-                   DESC
-
   s.homepage     = "https://github.com/ziyingzhishang/XSlider"
 
-  s.license      = "MIT"
-  
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
+  s.license      = "MIT"  
   s.author             = { "Xudong" => "ziyingzhishang@163.com" }
- 
 
   s.platform     = :ios
 
