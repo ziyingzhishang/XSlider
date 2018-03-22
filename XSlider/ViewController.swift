@@ -17,7 +17,11 @@ class ViewController: UIViewController {
   }
 
   @IBAction func resetValue(_ sender: Any) {
-    slider.value = 10
+    if slider.value >= slider.maxmumValue {
+      slider.value -= 0.2
+    } else {
+      slider.value += 0.2
+    }
   }
   @IBAction func valueChanged(_ sender: Any) {
     guard let slider = sender as? XSlider else { return }

@@ -61,10 +61,6 @@ class XSlider: UIControl {
     configUI()
   }
 
-  override func layoutSubviews() {
-    super.layoutSubviews()
-  }
-
   override func draw(_ rect: CGRect) {
     super.draw(rect)
     let penColor = mainLineColor ?? UIColor.darkGray

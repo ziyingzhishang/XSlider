@@ -6,3 +6,5 @@
 </p>
 
 # XSlider
+
+![]images/result.png
