@@ -9,18 +9,20 @@
 ![](images/result.png)
 
 # Contents
+* [Next]
 * [Requirements]
 * [Properties]
 * [Usage]
   + [How to use]
 * [Installation]
 * [Donate]
-## Plan
-- Add label for every scale and let you choose it show or hide
-- 
+* [Autor]
 ## Requirements
 * Xcode 9+
 * Swift 3+
+## Next
+- Add label for every scale and let you choose it show or hide
+-
 ## Properties
 - LineColor
 - LineWidth
@@ -29,7 +31,7 @@
 - Minimum Value
 - value
 
-![](images/features.png)
+<img align="center" src="images/features.png"/>
 
 ## Usage
   Use in storeboard or in Your Code like a Apple's UISlider Control.
