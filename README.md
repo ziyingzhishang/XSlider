@@ -8,7 +8,15 @@
 
 ![](images/result.png)
 
-# Features
+# Contents
+* [Requirements]
+* [Features]
+* [Usage]
+  + [How to use]
+* [Installation]
+* [FAQ]
+
+## Features
 - LineColor
 - LineWidth
 - ScaleCount
@@ -16,4 +24,10 @@
 - Minimum Value
 
 ![](images/features.png)
+
+## Usage
+  Use in storeboard or in Your Code like a Apple's UISlider Control.
+## Installation
+
+## FAQ
 
