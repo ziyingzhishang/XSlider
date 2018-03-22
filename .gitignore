@@ -1,2 +1,4 @@
 xcuserdata/
 xcuserdata/*
+Carthage/
+Cartfile.resolved
