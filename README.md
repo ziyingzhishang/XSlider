@@ -53,7 +53,7 @@ class ViewController: UIViewController {
 ![wechat](images/wechat.png)
 ![alipay](images/alipay.png)
 
-## autor
+## Autor
 - email: ziyingzhishang@163.com
 - QQ: 987942684
 
