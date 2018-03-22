@@ -14,10 +14,13 @@
 * [Usage]
   + [How to use]
 * [Installation]
-* [FAQ]
-
+* [Donate]
+## Plan
+- Add label for every scale and let you choose it show or hide
+- 
 ## Requirements
-
+* Xcode 9+
+* Swift 3+
 ## Properties
 - LineColor
 - LineWidth
@@ -44,5 +47,13 @@ class ViewController: UIViewController {
 ```
 ## Installation
 
-## FAQ
+## Donate
+![wechat](images/wechat.png)
+![alipay](images/alipay.png)
+
+## autor
+- email: ziyingzhishang@163.com
+- QQ: 987942684
+
+
 
