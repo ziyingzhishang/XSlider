@@ -38,17 +38,26 @@
                                     <action selector="valueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="K30-vh-tIL"/>
                                 </connections>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YUU-dH-KAW">
+                                <rect key="frame" x="164.5" y="213" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="resetValue:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vZp-Q7-sfs"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="j43-zN-IXD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4YS-MU-wru"/>
+                            <constraint firstItem="YUU-dH-KAW" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Vfj-Yg-BNO"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="j43-zN-IXD" secondAttribute="trailing" constant="20" id="azz-SU-FsQ"/>
                             <constraint firstItem="j43-zN-IXD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="s1I-VZ-tIt"/>
+                            <constraint firstItem="YUU-dH-KAW" firstAttribute="top" secondItem="j43-zN-IXD" secondAttribute="bottom" constant="113" id="xr5-zl-9V4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="xslider" destination="j43-zN-IXD" id="DH2-GL-Rxq"/>
+                        <outlet property="slider" destination="j43-zN-IXD" id="tve-5p-9wm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -25,10 +25,14 @@ class XSlider: UIControl {
     return (maxValue - minValue) / Float(count)
   }()
 
-  var currentValue: Float = 0 {
+  open var value: Float = 0 {
     didSet {
-      self.sendActions(for: .valueChanged)
+      updateSlider(value)
     }
+  }
+
+  private var stepV: Float {
+    return (maxmumValue - minimumValue) / Float(count)
   }
 
   private var lineY: CGFloat {
@@ -129,17 +133,18 @@ class XSlider: UIControl {
     trackView.layer.backgroundColor = UIColor.white.cgColor
     guard let touch = touches.first else { return }
     let endPoint = touch.location(in: self)
-    updateSlider(endPoint)
+    if endPoint.x < minX || endPoint.x > maxX { return }
+    let index = round((endPoint.x - minX) / stepW)
+    self.value = self.minimumValue + self.stepValue * Float(index)
   }
 
-  private func updateSlider(_ position: CGPoint, _ animated: Bool = true) {
-    if position.x < minX || position.x > maxX { return }
-    let index = round((position.x - minX) / stepW)
-    let currentX = stepW * index + minX
-
+  private func updateSlider(_ value: Float, _ animated: Bool = true) {
+    if value > maxmumValue || value < minimumValue { return }
+    let index = round(value / stepValue)
+    let currentX = CGFloat(stepW * CGFloat(index)) + minX
     UIView.animate(withDuration: 0.1) { [unowned self] in
       self.trackView.center = CGPoint(x: currentX, y: self.lineY)
-      self.currentValue = self.minimumValue + self.stepValue * Float(index)
+      self.sendActions(for: .valueChanged)
     }
   }
 }
