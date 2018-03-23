@@ -25,14 +25,16 @@ open class XSlider: UIControl {
 
   open var value: Float {
     set {
-      currentValue = minValue + round(currentValue / stepV) * stepV
-      if value == newValue { return }
-      currentValue = newValue
-      updateSlider(newValue)
+      currentValue = minValue + round(newValue / stepV) * stepV
+      updateSlider(currentValue)
     }
     get {
       return currentValue
     }
+  }
+
+  open var stepValue: Float {
+    get { return stepV }
   }
 
   private lazy var stepV: Float = {
@@ -53,6 +55,12 @@ open class XSlider: UIControl {
 
   private var stepW: CGFloat {
     return (self.bounds.width - (2 * padding)) / CGFloat(count)
+  }
+
+  private var currentX: CGFloat {
+    if value > maxValue || value < minValue { return minX }
+    let index = round(value / stepV)
+    return CGFloat(stepW * CGFloat(index)) + minX
   }
 
   override init(frame: CGRect) {
@@ -86,8 +94,7 @@ open class XSlider: UIControl {
       context.addLine(to: CGPoint(x: scaleLineX, y: scaleLineToY))
       context.strokePath()
     }
-//    trackView.center = CGPoint(x: padding, y: lineY)
-    updateSlider(value)
+    trackView.center = CGPoint(x: currentX, y: lineY)
   }
 
   func configUI() {
@@ -140,38 +147,35 @@ open class XSlider: UIControl {
   }
 
   private func updateSlider(_ value: Float, _ animated: Bool = true) {
-    if value > maxValue || value < minValue { return }
-    let index = round(value / stepV)
-    let currentX = CGFloat(stepW * CGFloat(index)) + minX
     UIView.animate(withDuration: 0.1) { [unowned self] in
-      self.trackView.center = CGPoint(x: currentX, y: self.lineY)
+      self.trackView.center = CGPoint(x: self.currentX, y: self.lineY)
       self.sendActions(for: .valueChanged)
     }
   }
 }
 
 extension XSlider {
-  @IBInspectable var minimumValue: Float {
+  @IBInspectable open var minimumValue: Float {
     set { self.minValue = newValue }
     get { return minValue }
   }
 
-  @IBInspectable var maxmumValue: Float {
+  @IBInspectable open var maxmumValue: Float {
     set { self.maxValue = newValue }
     get { return maxValue }
   }
 
-  @IBInspectable var lineColor: UIColor {
+  @IBInspectable open var lineColor: UIColor {
     set { self.mainLineColor = newValue }
     get { return mainLineColor }
   }
 
-  @IBInspectable var lineWidth: Float {
+  @IBInspectable open var lineWidth: Float {
     set { self.mainLineWidth = newValue }
     get { return mainLineWidth }
   }
 
-  @IBInspectable var scaleCount: Int {
+  @IBInspectable open var scaleCount: Int {
     set { self.count = newValue }
     get { return count }
   }
