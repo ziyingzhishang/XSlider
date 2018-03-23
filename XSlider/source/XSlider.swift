@@ -115,6 +115,15 @@ open class XSlider: UIControl {
     self.addSubview(trackView)
   }
 
+  private func updateSlider(_ value: Float, _ animated: Bool = true) {
+    UIView.animate(withDuration: 0.1) { [unowned self] in
+      self.trackView.center = CGPoint(x: self.currentX, y: self.lineY)
+      self.sendActions(for: .valueChanged)
+    }
+  }
+}
+
+extension XSlider {
   override open func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     let rect = CGRect(x: trackView.frame.origin.x,
                       y: trackView.frame.origin.y,
@@ -146,13 +155,6 @@ open class XSlider: UIControl {
     if endPoint.x < minX || endPoint.x > maxX { return }
     let index = round((endPoint.x - minX) / stepW)
     self.value = self.minValue + self.stepV * Float(index)
-  }
-
-  private func updateSlider(_ value: Float, _ animated: Bool = true) {
-    UIView.animate(withDuration: 0.1) { [unowned self] in
-      self.trackView.center = CGPoint(x: self.currentX, y: self.lineY)
-      self.sendActions(for: .valueChanged)
-    }
   }
 }
 

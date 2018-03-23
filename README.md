@@ -27,7 +27,7 @@ A very simple and IBDesignable Slider, change value by step .
 ## Support
 * ios 10.0 *
 ## Next Plan
-- Add label for every scale and let you choose it show or hide
+- Add label for every scale and let user choose it show or hide
 
 ## Properties
 - LineColor
