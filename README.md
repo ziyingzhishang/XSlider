@@ -1,5 +1,6 @@
 # XSlider
 A very simple and IBDesignable Slider, change value by step .
+
 <p align="center">
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
@@ -14,6 +15,7 @@ A very simple and IBDesignable Slider, change value by step .
 # Contents
 * [Next]
 * [Requirements]
+* [Support]
 * [Properties]
 * [Usage]
   + [How to use]
@@ -22,9 +24,11 @@ A very simple and IBDesignable Slider, change value by step .
 ## Requirements
 * Xcode 9+
 * Swift 3+
-## Next
+## Support
+* ios 10.0 *
+## Next Plan
 - Add label for every scale and let you choose it show or hide
--
+
 ## Properties
 - LineColor
 - LineWidth
@@ -46,7 +50,7 @@ Add ``` pod 'XSlider' :git=>'https://github.com/ziyingzhishang/XSlider.git' ``` 
 
 Use it just like use UISlider , very easy !
 
-- #### Use in storyboard
+### Use in storyboard
 + Drag a UIView to your storyboard and set it to ```XSlider```  type ;
 <p align='center'>
 <img src="images/storyboard.png" />
