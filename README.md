@@ -19,7 +19,6 @@ A very simple and IBDesignable Slider, change value by step .
 * [Properties]
 * [Usage]
   + [How to use]
-* [Donate]
 * [Autor]
 ## Requirements
 * Xcode 9+
@@ -73,9 +72,6 @@ class ViewController: UIViewController {
   }
 }
 ```
-## Donate
-![wechat](images/wechat.png)
-![alipay](images/alipay.png)
 
 ## Autor
 - email: ziyingzhishang@163.com
