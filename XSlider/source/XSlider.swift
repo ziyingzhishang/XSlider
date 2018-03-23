@@ -25,6 +25,7 @@ open class XSlider: UIControl {
 
   open var value: Float {
     set {
+      if newValue > maxValue || newValue < minValue { return }
       currentValue = minValue + round(newValue / stepV) * stepV
       updateSlider(currentValue)
     }
@@ -58,7 +59,8 @@ open class XSlider: UIControl {
   }
 
   private var currentX: CGFloat {
-    if value > maxValue || value < minValue { return minX }
+    if value > maxValue { return maxX }
+    if value < minValue { return minX }
     let index = round(value / stepV)
     return CGFloat(stepW * CGFloat(index)) + minX
   }
