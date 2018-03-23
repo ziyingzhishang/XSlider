@@ -1,4 +1,5 @@
 # XSlider
+A very simple and IBDesignable Slider, change value by step .
 <p align="center">
 <img src="https://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform iOS" />
 <a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage compatible" /></a>
@@ -41,7 +42,21 @@
 ### Carthage
   Add ``` github "ziyingzhishang/XSlider" "master" ``` in Cartfile of your porject .
 ### CocoaPod
-  Add ``` pod 'XSlider' ``` in Podfile of your project . 
+Add ``` pod 'XSlider' :git=>'https://github.com/ziyingzhishang/XSlider.git' ``` in Podfile of your project .
+
+Use it just like use UISlider , very easy !
+
+- #### Use in storyboard
++ Drag a UIView to your storyboard and set it to ```XSlider```  type ;
+<p align='center'>
+<img src="images/storyboard.png" />
+</p>
+
++ Set its properties in right panel of view ;
+<p align='center'>
+<img src="images/storyboard2.png" />
+</p>
+
 ```swift
 import UIKit
 
@@ -54,7 +69,6 @@ class ViewController: UIViewController {
   }
 }
 ```
-
 ## Donate
 ![wechat](images/wechat.png)
 ![alipay](images/alipay.png)
